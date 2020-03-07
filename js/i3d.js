@@ -466,12 +466,12 @@ function mainSlicing() {
 function exportASCII() {
     $("#heightSlider").slider("disable");  // disable the height control slider
     $('#btsave').prop('disabled', true);   // disable save button
-    // var group = new THREE.Group();
-    // group.add(result1);
-    // group.add(result2);
+    var group = new THREE.Group();
+    group.add(result1);
+    group.add(result2);
     var exporter = new THREE.STLExporter();
-    var rr = exporter.parse(result1);
-    saveString(rr, 'new.stl');
+    var rr = exporter.parse(group);
+    saveString(rr, 'SlicedObjects.stl');
     console.log('stl successfully saved..');
     fileopen = false;
 }
